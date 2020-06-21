@@ -7,13 +7,19 @@
 <script>
     import ViewFormCreateAndEditAdItem from "../View/ViewFormCreateAndEditAdItem";
     export default {
-      name: "AdCreateItem",
       components: {
         ViewFormCreateAndEditAdItem
       },
 
+      name: "AdCreateItem",
 
       methods: {
+        /**
+         *
+         * @param ad_object
+         * @returns {undefined}
+         * @constructor
+         */
         async OnUpload(ad_object) {
               const success_push = {
                   status: true,
@@ -34,6 +40,10 @@
         },
 
       computed: {
+        /**
+         *
+         * @returns {loading}
+         */
         loading() {
           return this.$store.getters.loading;
         },

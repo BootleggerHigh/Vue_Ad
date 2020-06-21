@@ -237,18 +237,6 @@
                 this.$refs.form.reset();
             },
 
-            onUploadEmit() {
-                if (this.$refs.form.validate()) {
-                    this.$emit('ad-upload', this.adCurrentData);
-                }
-            },
-
-            onSaveEmit() {
-                if (this.$refs.form.validate()) {
-                    this.$emit('ad-save');
-                }
-            },
-
             onFileUpload(event) {
                 event.forEach(image => {
                     const file = new FileReader();
@@ -276,17 +264,44 @@
                 });
             },
 
+            /**
+             * Передает в пользовательский event url картинки,для удаления;
+             * @param image
+             */
             OnRemoveImage(image) {
                 this.$emit('ad-remove-old-image', image);
             },
-
+            /**
+             * Вызывает пользовательский event для закрытие формы;
+             */
             onCloseForm() {
                 this.$emit('form-close');
             },
-
+            /**
+             * Передает в пользовательский event url картинки и саму картинки для пушинга;
+             * @param imageSrc
+             * @param file
+             * @constructor
+             */
             OnPushNewImageAndSource(imageSrc, file) {
                 this.$emit('ad-source-new-image', imageSrc, file);
-            }
+            },
+            /**
+             * Передает в пользовательский event информацию об Объявлении для создания;
+             */
+            onUploadEmit() {
+                if (this.$refs.form.validate()) {
+                    this.$emit('ad-upload', this.adCurrentData);
+                }
+            },
+            /**
+             * Вызывает пользовательский event для изменения Объявления;
+             */
+            onSaveEmit() {
+                if (this.$refs.form.validate()) {
+                    this.$emit('ad-save');
+                }
+            },
         },
 
         computed: {

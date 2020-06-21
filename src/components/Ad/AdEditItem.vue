@@ -18,10 +18,12 @@
     import ViewFormCreateAndEditAdItem from "../View/ViewFormCreateAndEditAdItem";
 
     export default {
-        name: "AdEditItem",
         components: {
             ViewFormCreateAndEditAdItem
         },
+
+        name: "AdEditItem",
+
 
         props: {
             id: {
@@ -39,6 +41,10 @@
         },
 
         methods: {
+            /**
+             *
+             * @returns {Promise<void>}
+             */
             async onSave() {
                 this.close_form.images = this.upload_new_image;
                 const success_push = {
@@ -57,6 +63,11 @@
 
             },
 
+            /**
+             *
+             * @param imageRemove
+             * @constructor
+             */
             OnRemoveOldImage(imageRemove) {
                 if(imageRemove.includes("data:image/"))
                 {
@@ -74,12 +85,16 @@
                         }
                     });
                 },
-
+            /**
+             *
+             * @param imageSrc
+             * @param image
+             * @constructor
+             */
             OnUploadNewImageAndSource(imageSrc,image) {
                 this.source_new_image.push(imageSrc);
                 this.upload_new_image.push(image);
             },
-
             formClose() {
                     this.dialog = !this.dialog;
                     this.$router.push(`/ad/${this.id}`);
@@ -87,9 +102,17 @@
         },
 
         computed: {
+            /**
+             *
+             * @returns {loading}
+             */
             loading() {
                 return this.$store.getters.loading;
             },
+            /**
+             *
+             * @returns [adData]
+             */
             adData() {
                 return this.$store.getters.ad_by_id(this.id);
             }

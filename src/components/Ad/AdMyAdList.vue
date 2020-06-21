@@ -6,10 +6,16 @@
 <script>
     import ViewAdListOrMyAdList from "../View/ViewAdListOrMyAdList";
     export default {
-        name: "AdMyAdList",
         components: {ViewAdListOrMyAdList},
 
+        name: "AdMyAdList",
+
+
         computed:{
+            /**
+             *
+             * @returns [my_ads]
+             */
             my_ads()
             {
                 return this.$store.getters.my_ads;

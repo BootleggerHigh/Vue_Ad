@@ -88,7 +88,7 @@ export default
             }
         }
     },
-    getters:{
+    getters: {
         /**
          *
          * @param state

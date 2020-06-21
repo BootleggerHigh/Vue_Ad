@@ -2,6 +2,16 @@ import firebase from 'firebase/app';
 import 'firebase/database'
 
 class Order {
+    /**
+     *
+     * @param name
+     * @param phone
+     * @param adID
+     * @param email
+     * @param description
+     * @param done
+     * @param id
+     */
     constructor(name,
                 phone,
                 adID,
@@ -100,6 +110,13 @@ export default{
                 throw error
             }
         },
+        /**
+         *
+         * @param commit
+         * @param getters
+         * @param payload
+         * @returns {Promise<void>}
+         */
         async markOrderDone({commit,getters},payload)
         {
             try {
@@ -119,14 +136,30 @@ export default{
     },
 
     getters:{
+        /**
+         *
+         * @param state
+         * @returns {*[]}
+         */
         doneOrders(state)
         {
             return state.orders.filter(orders => orders.done)
         },
+        /**
+         *
+         * @param state
+         * @returns {*[]}
+         */
         unDoneOrders(state)
         {
             return state.orders.filter(orders => !orders.done)
         },
+        /**
+         *
+         * @param state
+         * @param getters
+         * @returns {*}
+         */
         orders(state,getters)
         {
             return getters.unDoneOrders.concat(getters.doneOrders);

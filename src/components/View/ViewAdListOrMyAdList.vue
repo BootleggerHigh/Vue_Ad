@@ -42,6 +42,8 @@
 <script>
     //  Общий компонент для  других компонентов : AdList,AdMyAdList
     export default {
+        name: "ViewAdListOrMyAdList",
+
         props: {
             adList:
                 {
@@ -55,7 +57,6 @@
                 }
             },
         },
-        name: "ViewAdListOrMyAdList"
     }
 </script>
 

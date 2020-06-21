@@ -23,10 +23,12 @@
                     <router-view></router-view>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn v-if="access_to_edit_ad" class="primary"
+                        <v-btn v-if="access_to_edit_ad"
+                               class="primary"
                                :to="`${this.$route.path}/edit`">Изменить
                         </v-btn>
-                        <v-btn v-else class="success"
+                        <v-btn v-else
+                               class="success"
                                :to="`${this.$route.path}/buy`"> Купить
                         </v-btn>
                     </v-card-actions>
@@ -47,13 +49,20 @@
             },
 
         computed: {
+            /**
+             *
+             * @returns [ad]
+             */
                 ad() {
                     return this.$store.getters.ad_by_id(this.id);
                 },
-            access_to_edit_ad()
-            {
-                return this.$store.getters.access_to_edit_ad(this.id);
-            }
+            /**
+             *
+             * @returns [access_to_edit_ad]
+             */
+                access_to_edit_ad() {
+                    return this.$store.getters.access_to_edit_ad(this.id);
+                }
         },
     }
 </script>

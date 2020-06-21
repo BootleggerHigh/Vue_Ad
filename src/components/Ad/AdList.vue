@@ -11,6 +11,10 @@
         name: "AdList",
 
         computed: {
+            /**
+             *
+             * @returns [all_ads]
+             */
             all_ads() {
                 return this.$store.getters.ads;
             },
