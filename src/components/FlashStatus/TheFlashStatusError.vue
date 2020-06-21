@@ -5,14 +5,12 @@
             :timeout="6000"
             color="error"
             @input="closeError"
-            :value="true"
-    >
+            :value="true">
         {{ error_message }}
         <v-btn
                 dark
                 text
-                @click.native="closeError"
-        >
+                @click.native="closeError">
             Закрыть
         </v-btn>
     </v-snackbar>
@@ -20,17 +18,16 @@
 
 <script>
     export default {
-        name: "snackbar_error",
-        methods:{
-            closeError()
-            {
+        name: "TheFlashStatusError",
+
+        methods: {
+            closeError() {
                 this.$store.dispatch('clearError');
             },
         },
-        computed:
-            {
-                error_message()
-                {
+
+        computed: {
+                error_message() {
                     return this.$store.getters.error;
                 }
             }
