@@ -62,3 +62,7 @@ Vuetifyjs;
 Проект сделан по [рекомендациям](https://vuejs.org/v2/style-guide/index.html)
 ### Итоговый проект: 
 https://vue-start-project.firebaseapp.com/
+
+### Примечание:
+
+Да,в Main.js имеется доступ к коннекту в БД,в курсе,спасибо.
